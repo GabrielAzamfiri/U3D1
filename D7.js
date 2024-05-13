@@ -3,8 +3,8 @@
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
 const concatFunction = (str1, str2) => {
-  let concatenato = str1.split("").splice(0, 2).concat(str2.split("").splice(-3));
-
+  let concatenato = str1.split("").splice(0, 2).concat(str2.split("").splice(-3)); // splice si usa per estrarre e modificare elementi di un array
+  // slice invece estrae elementi/caratteri di un arrey o di una stringa senza modificare l'originale
   return concatenato.join("").toUpperCase();
 };
 console.log("Es: 1", concatFunction("Ciao", "Epicode"));
@@ -25,22 +25,29 @@ console.log("Es: 2 ", arr10());
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
 const numeri = arr10();
-console.log(numeri);
-const numPari = numeri.filter((num) => num % 2 === 0);
-console.log("Es: 3 ", numPari);
+console.log("Es: 3 ", numeri);
+const numPari = () => numeri.filter((num) => num % 2 === 0);
+
+console.log("Es: 3 ", numPari());
 
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-let totale = 0;
 const arrEs4 = arr10();
 console.log("Es: 4 ", arrEs4);
-arrEs4.forEach((num) => (totale += num));
-console.log("Es: 4 ", totale);
+const funcEs4 = (arr) => {
+  let totale = 0;
+  arr.forEach((num) => (totale += num));
+  return totale;
+};
+console.log("Es: 4 totale", funcEs4(arrEs4));
 
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+const arrEs5 = arr10();
+const totaleLista = (lista) => lista.reduce((totale, num) => totale + num);
+console.log("ES:5 totale=", totaleLista(arrEs5));
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
@@ -201,6 +208,9 @@ console.log("ES: 12 ", funcEs12());
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+
+const funcEs13 = () => movies.map((film) => parseInt(film.Year)).reduce((totale, num) => totale + num); //uso parseInt(stringa) per trasformarla in numero.. altrimenti reduce mi fa la somma delle stringhe
+console.log("Es 13 : ", funcEs13());
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
