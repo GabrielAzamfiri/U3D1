@@ -212,4 +212,4 @@ console.log("ES: 14 ", funcEs14("Avengers: Age of Ultron"));
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
 const funcEs15 = (anno) => movies.findIndex((film) => film.Year === anno);
-console.log("Es: 15 ", funcEs15("2019"));
+console.log("Es: 15 l'Index del film è", funcEs15("2019"));
